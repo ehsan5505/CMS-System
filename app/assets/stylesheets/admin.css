@@ -1,0 +1,60 @@
+form input{
+    margin:10px 0;
+}
+
+.field_with_errors{
+   color:red;
+   letter-spacing:1px;
+}
+
+p.bg-primary{
+    padding:7px;
+    border:2px solid #ddd;
+    border-radius:7px 5px;
+}
+
+p.bg-info{
+    background:#40403e;
+    color:#ddd;
+    padding:5px;
+    border:2px solid #000;
+    border-radius:12px 5px;
+    font-size:1.2em;
+    text-align:right;
+    font-variant:small-caps;
+    word-spacing:2px;
+    letter-spacing:1px;
+}
+
+
+  span.status {
+    width:10px;
+    height:10px;
+    display:block;
+    border:1px solid black;
+    border-radius:5px;
+  }
+  span.status.true{
+    opacity:0.9;
+    background:green;
+    color:green;
+  }
+  span.status.false{
+    background:red;
+    color:red;
+    opacity:0.9;
+  }
+
+em.title{
+    text-align:center;
+    text-transform:capitalize;
+  
+}
+
+
+footer{
+    margin-top:50px;
+    border:2px solid #ddd;
+    border-radius:7px;
+    padding:10px 15px;
+}

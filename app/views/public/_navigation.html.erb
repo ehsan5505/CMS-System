@@ -1,0 +1,18 @@
+			<ul>
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Navigation</h3>
+				  </div>
+					<div class="panel-body">
+				    	<ul><% @pages.each do |pg| %>
+				    		<li> <%= pg.name %></li>
+							<ul><% pg.sections.sorted.visible.each do |pg| %>
+						  		<li><%= link_to_unless_current pg.name,:action=>"show",:permalink=>pg.permalink %></li>
+						  		<% end %>
+						  	</ul>
+						  	<% end %>
+						</ul>
+
+				  	</div>
+				</div>
+			</ul>	

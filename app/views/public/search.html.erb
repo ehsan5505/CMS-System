@@ -1,0 +1,16 @@
+<% @page_title = "Search" %>
+<div class="">
+
+<% @result.each do |res| %>
+	  <div class="media">
+		<!-- <a class="pull-left" href=""> -->
+	    <!-- <img class="media-object" src="..." alt="..." width="40px" height="40px"> -->
+	  	<%= link_to(image_tag("article.png",size: "80x80",alt:"Article"),{:action=>"show",:permalink=>res.permalink},:class=>"pull-left" )  %>
+	  </a>
+	  <div class="media-body">
+	    <h4 class="media-heading"><%= res.name %></h4>
+	    <p><%= truncate(res.content,:length=>200,:omiision=>" Read more") %></p>
+	  </div>
+	</div>
+	  <% end %>
+</div>

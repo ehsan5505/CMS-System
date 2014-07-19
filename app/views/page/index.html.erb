@@ -1,0 +1,43 @@
+<% @page_title = "Welcome to Page" %>
+
+	<%= link_to("<< Back to Subject",{:controller=>'subject'},:class=>"btn btn-primary btn-xs") %>
+
+    <%= link_to("+ Add New Page",{:action=>'new',:sub=>@subject.id},:class=>"btn btn-default btn-xs pull-right") %>
+  <div class="table-responsive">  
+    
+    <table class="table table-hover table-condensed">
+    <div class="row">
+	  <h3>Page</h3> 
+	    <p class="bg-info">There are <em><%= pluralize(@pages.size,"Page") %><em> </p><br/>
+	</div>
+    
+    <tr class="active">
+	<th>&nbsp;</th>
+	<th>Name</th>
+	<th>Position</th>
+	<th>Visible</th>
+ 	<th>Permalink</th>
+ 	<th>Page</th>
+	<th>Sections</th>
+	<th>Action</th>
+    </tr>
+    <% @pages.each do |pg| %>
+    <tr>
+	<td>&nbsp;</td>
+	<td> <%= truncate(pg.name,:length=>20,:omission=>" >>") %> </td>
+	<td> <%= pg.position %> </td>
+	<td> <%= status_bar(pg.visible) %> </td>
+	<td> <%= truncate(pg.permalink,:length=>15,:omission=>"...") %></td>
+	<td> <%= pg.subject.name if (pg.subject) %></td>
+	<td> <%= pg.sections.size %> </td>
+	<td>
+		  <%= link_to("SECTION",:controller=>"section",:action=>"index" ,:pg=> pg.id,:sub=>@subject.id) %>	
+	      <%= link_to("SHOW",:action=>'show',:id => pg.id,:sub=>@subject.id) %>
+	      <%= link_to("EDIT",:action=>'edit',:id=> pg.id,:sub=>@subject.id) %>
+	      <%= link_to("DEL", :action=>'delete',:id=> pg.id,:sub=>@subject.id) %>
+	</td>
+    </tr>
+    <% end %>
+    
+    </table>
+  </div>

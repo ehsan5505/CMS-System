@@ -1,0 +1,43 @@
+<% @page_title = "Login" %>
+
+  <%= link_to("<< Back to Index",{:action=>"index"},:class=>"btn btn-default btn-xs  pull-right") %>
+    <!-- <h2> Welcome to Admin </h2> -->
+	<!-- Here we paste the login information -->
+	<!-- <div class="row"> -->
+	<div class="row">
+	  <h3>Login</h3> 
+	    <p class="bg-info">Login to the Management<em> </p><br/>
+	</div>
+
+
+		<div class="jumbotron">
+			  
+			<h2>Login As Admin</h2>
+			   	<div class="container">
+			    	<p class="col-sm-6"> 
+			    		We are addressing more than normal CMS system from last couple of year we are practicing best of the net interface in the world of CMS system and we are hoping that open source development will enlarge our scope of the design pattern. For further enhancement kind mail us at ehsan5505@gmail.com.
+			    	</p>
+			    	<div class="col-sm-6">
+			    		<%= form_tag(:action=>"login_attempt") do %>
+			    		<div class="input-group">
+							  <span class="input-group-addon">@Username</span>
+							  <%= text_field_tag(:username,nil,options={:class=> 'form-control',:style=>"margin:0px;",:placeholder=>"Username"}) %>
+						</div><br/><br/>
+							<div class="input-group">
+							  <span class="input-group-addon">@Password</span>
+							  <%= password_field_tag :password,nil,options={:class=> 'form-control',:style=>"margin:0px;",:placeholder=>"Password"} %>
+							</div><br/><br/>
+
+			    	
+							<div class="form-group pull-right">
+			    				<%= submit_tag("Sign In", :class=>"btn btn-primary btn-lg btn-block") %>
+			    			</div>
+			    	</div>
+			  	</div>
+			  	<% end %>
+		</div>	
+
+
+
+
+	<!-- </div>end of row -->

@@ -1,0 +1,13 @@
+<% @page_title = "Delete #{@page.name}" %>
+
+
+    <%= link_to("<< Back to Index",{:action=>'index',:sub=>@subject.id},:class=>"btn btn-default btn-xs  pull-right") %>
+    <h2> Delete <%= @page.name %> </h2>
+    <%= form_for(:page,:url=>{:action=>'destroy',:id=>@page.id,:sub=>@subject.id}) do |f| %>
+	
+	<h5><em>Are you sure you want to delete <%= @page.name %></em></h5>
+		<div class="col-sm-2 pull-right">  
+			<%= submit_tag("Delete",:class=>"btn btn-warning btn-block") %>
+		</div>
+    <% end %>
+  

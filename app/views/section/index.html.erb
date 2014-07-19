@@ -1,0 +1,45 @@
+<% @page_title = "Welcome to Section" %>
+
+	<%= link_to("<< Back to Page",{:controller=>'page',:pg=>@page.id,:sub=>@subject.id},:class=>"btn btn-primary btn-xs") %>
+
+
+    <%= link_to("+ Add New Section",{:action=>'new',:pg=>@page.id,:sub=>@subject.id},:class=>"btn btn-default btn-xs pull-right") %>
+    
+    <div class="table-responsive">
+    
+	<table class="table table-hover table-condensed">
+	<div class="row">
+	  <h3>Section</h3> 
+	    <p class="bg-info">There are <em><%= pluralize(@sections.size,"section") %><em> </p><br/>
+	</div>
+	<tr class="active">
+	    <th>&nbsp;</th>
+	    <th>Name</th>
+	    <th>Position</th>
+	    <th>Visible</th>
+	    <th>Permalink</th>
+	    <th>Page</th>
+	    <th>Content Type</th>
+	    <th>Content</th>
+	    <th>Action</th>
+	</tr>
+	<% @sections.each do |sec| %>
+	<tr>
+	    <td>&nbsp;</td>
+	    <td> <%= truncate(sec.name,:length=>20,:omission=> ">>") %> </td>
+	    <td> <%= sec.position %> </td>
+	    <td> <%= status_bar(sec.visible) %> </td>
+	    <td> <%= sec.permalink if sec.permalink %> </td>
+	    <td> <%= sec.page.name if sec.page %> </td>
+	    <td> <%= sec.content_type %></td>
+	    <td> <%=  truncate(sec.content,:length=>20,:omission=>" ...") %></td>
+	    <td>
+		  <%= link_to("SHOW",:action=>'show',:id=> sec.id,:pg=>@page.id,:sub=>@subject.id) %>
+		  <%= link_to("EDIT",:action=>'edit',:id=> sec.id,:pg=>@page.id,:sub=>@subject.id) %>
+		  <%= link_to("DEL", :action=>'delete',:id=> sec.id,:pg=>@page.id,:sub=>@subject.id) %>
+	    </td>
+	</tr>
+	<% end %>
+	
+	</table>
+    </div>

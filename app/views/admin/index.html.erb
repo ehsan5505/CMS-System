@@ -1,0 +1,38 @@
+<% @page_title = "Welcome to Admin" %>
+	
+	<!-- for back to management -->
+	 <%= link_to("<< Back to Content",{:controller=>"access"},:class=>"btn btn-primary btn-xs") %>
+
+    <%= link_to("+ Add New Admin",{:action=>'new'},:class=>"btn btn-default btn-xs pull-right") %>
+  <div class="table-responsive">  
+    
+    <table class="table table-hover table-condensed">
+    <div class="row">
+	  <h3>Admin</h3> 
+	    <p class="bg-info">There are <em><%= pluralize(@admins.size,"Admin") %><em> </p><br/>
+	</div>
+    
+    <tr class="active">
+	<th>&nbsp;</th>
+	<th>Name</th>
+	<th>Email</th>
+	<th>Username</th>
+ 	<th>Pages</th>
+	<th>Action</th>
+    </tr>
+    <% @admins.each do |ad| %>
+    <tr>
+	<td>&nbsp;</td>
+	<td> <%= truncate(ad.name,:length=>20,:omission=>" >>") %> </td>
+	<td> <%= mail_to(ad.email) %> </td>
+	<td> <%= truncate(ad.username,:length=>15,:omission=>"...") %></td>
+	<td> <%= ad.pages.size if (ad.pages) %></td>
+	<td>
+	      <%= link_to("EDIT",:action=>'edit',:id=> ad.id) %>
+	      <%= link_to("DEL", :action=>'delete',:id=> ad.id) %>
+	</td>
+    </tr>
+    <% end %>
+    
+    </table>
+  </div>

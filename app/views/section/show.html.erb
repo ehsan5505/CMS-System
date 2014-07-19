@@ -1,0 +1,49 @@
+<% @page_title = "Showoff #{@section.name}" %>
+
+  <%= link_to("<< Back to Index",{:action=>'index',:pg=>@page.id,:sub=>@subject.id},:class=>"btn btn-default btn-xs  pull-right") %>
+
+  <div class="row table-responsive" >
+    <h2> Showing >> <%= @section.name %> </h2>
+	
+	<%= form_for(:section,:role=>"form",:class=>"form-horizontal") do |f|%>
+	<table>
+	  <tr class="form-group">
+	    <th ><%= f.label("Name:",:class=>"control-label col-sm-4") %></th>
+	    <td class="form-control-static col-sm-6"><%= @section.name %></td>
+	  </tr>
+	  <tr class="form-group">
+	    <th><%= f.label("Position:",:class=>"control-label col-sm-4") %></th>
+	    <td class="form-control-static col-sm-6"><%= @section.position %></td>
+	  </tr>
+	  <tr class="form-group">
+	    <th><%= f.label("Visible:",:class=>"control-label col-sm-4") %></th>
+	    <td class="col-sm-6 form-control-static"><%= @section.visible ? "Yes" : "No" %></td>
+	  </tr>
+	  <tr class="form-group">
+	    <th><%= f.label("Permalink:",:class=>"control-label col-sm-4") %></th>
+	    <td class="form-control-static col-sm-6"><%= @section.permalink ||="" %></td>
+	  </tr>
+	  <tr class="form-group">
+	    <th><%= f.label("Type:",:class=>"control-label col-sm-4") %></th>
+	    <td class="form-control-static col-sm-6"><%= @section.content_type %></td>
+	  </tr>
+	  <tr class="form-group">
+	    <th ><%= f.label("Page:",:class=>"control-label col-sm-4") %></th>
+	    <td class="form-control-static col-sm-6"><%= @section.page.name if @section.page %></td>
+	  </tr>
+	  <tr class="form-group">
+	    <th><%= f.label("Content:",:class=>"control-label col-sm-4") %></th>
+	    <td class="form-control-static col-sm-6"><%= @section.content %></td>
+	  </tr>
+	  <tr class="form-group">
+	    <th><%= f.label("Created:",:class=>"control-label col-sm-4") %></th>
+	    <td class="form-control-static col-sm-6"><%= @section.created_at %></td>
+	  </tr>
+	  <tr class="form-group">
+	    <th><%= f.label("Update",:class=>"control-label col-sm-4")%> </th>
+	    <td class="form-control-static col-sm-10"><%= @section.updated_at %></td>
+	  </tr>
+	  
+	</table>
+      <% end %>
+  </div>

@@ -1,0 +1,39 @@
+<% @page_title = "#{@page.name}" %>
+
+
+  <%= link_to("<< Back to Index",{:action=>'index',:sub=>@subject.id}, :class=>"btn btn-default btn-xs  pull-right") %>
+    <h2> Showing >> <%= @page.name %> </h2>
+	
+    <%= form_for(:page,:class=>"form-horizontal", :role=>"form") do |f| %>
+	    <table>
+	      <tr class="form-group">
+		<th><%= f.label("Name:",:class=>"control-label col-sm-2",:for=>:name )%></th>
+		<td class="col-sm-10"><p class="form-control-static"><%= @page.name %></p></td>
+	      </tr>
+	      <tr class="form-group">
+		<th><%= f.label("Position:",:class=>"control-label col-sm-2",:for=>:position )%></th>
+		<td class="col-sm-10"><p class="form-control-static"><%= @page.position %></p></td>
+	      </tr>
+	      <tr class="form-group">
+		<th><%= f.label("Visible:",:class=>"control-label col-sm-2",:for=>:visible )%></th>
+		<td class="col-sm-10"><p class="form-control-static"><%= @page.visible %></p></td>
+	      </tr>
+	      </tr>
+	      <tr class="form-group">
+		<th><%= f.label("Permalink:",:class=>"control-label col-sm-2",:for=>:permalink )%></th>
+		<td class="col-sm-10 btn-link"><p class="form-control-static"><%= @page.permalink %></p></td>
+	      </tr>
+	      <tr class="form-group">
+		<th><%= f.label("Subject:",:class=>"control-label col-sm-2",:for=>:subject_id )%></th>
+		<td class="col-sm-10"><p class="form-control-static"><%= @page.subject.name if @page.subject %></p></td>
+	      </tr>
+	      <tr class="form-group">
+		<th><%= f.label("Create:",:class=>"control-label col-sm-2",:for=>:created_at )%></th>
+		<td class="col-sm-10"><p class="form-control-static"><%= @page.created_at %></p></td>
+	      </tr>
+	      <tr class="form-group">
+		<th><%= f.label("Update:",:class=>"control-label col-sm-2",:for=>:updated_at )%></th>
+		<td class="col-sm-10"><p class="form-control-static"><%= @page.updated_at %></p></td>
+	      </tr>
+	  </table>
+	<% end %>

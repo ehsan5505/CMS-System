@@ -1,0 +1,17 @@
+<% page_title = @article.name %>
+
+<div class="">
+
+	<h2><%= @article.name %></h2>
+
+	<% case @article.content_type %>
+	<% when "html" %>
+	<%= raw(sanitize(@article.content,:tags=>["p","h4","h5","strong","small","em"])) %>
+	<% when "txt" %>
+	<%= #simple_format(word_wrap(@article.content,:line_width=>150,)) 
+	%> 
+	 <p><%= simple_format(@article.content) %></p>
+	
+	<% end %>	
+
+</div>

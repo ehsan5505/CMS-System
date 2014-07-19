@@ -1,0 +1,42 @@
+<% @page_title = "Welcome To CMS" %>
+
+	<%= link_to("<< Back to Main",{:controller=>"access"},:class=>"btn btn-primary btn-xs") %>
+    
+
+    <%= link_to("+ Add New Subject",{:action=>'new'},:class=>"btn btn-default btn-xs pull-right") %>
+    
+    <div class="row">
+	  <h3>Subject</h3> 
+	    <p class="bg-info">There are <em><%= pluralize(@subjects.size,"Subject") %><em> </p><br/>
+	</div>
+    <div class="row table-responsive">
+      <table class="table table-hover table-condensed">
+	
+      <tr class="active">
+	  <th>&nbsp;</th>
+	  <th>Name</th>
+	  <th>Position</th>
+	  <th>Visible</th>
+	  <th>Page</th>
+	  <th>Action</th>
+      </tr>
+      <% @subjects.each do |sub| %>
+      <tr>
+	  <td>&nbsp;</td>
+	  <td> <%= truncate(sub.name,:length=>20,:omission=>" >>") %> </td>
+	  <td> <%=sub.position %> </td>
+	  <td> <%= status_bar(sub.visible)  %> </td>
+	  <td> <%= sub.pages.size %> </td>
+	  <td>
+	  	<%= link_to("PAGE",:controller=>"page",:action=>"index", :sub=>sub.id) %>
+		<%= link_to("SHOW",:action=>'show',:id=>sub.id) %>
+		<%= link_to("EDIT",:action=>'edit',:id=>sub.id) %>
+		<!-- <%= #link_to("SHOW", edit_subject_path(sub.id) ) 
+		%> -->
+		<%= link_to("DEL", :action=>'delete',:id=>sub.id) %>
+	  </td>
+      </tr>
+      <% end %>
+      
+    </table>
+   </div>

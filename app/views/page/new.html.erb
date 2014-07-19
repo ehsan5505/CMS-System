@@ -1,0 +1,12 @@
+<% @page_title = "Add new Page" %>
+
+      <%= link_to("<< Back to Index",{:action=>'index',:sub=>@subject.id},:class=>"btn btn-default btn-sm pull-right") %>
+      
+      <h2> New Page </h2>
+      <%= form_for(:page,:url=>{:action=>'create',:sub=>@subject.id},:role=>'form',:class=>"form-horizontal" ) do |f|%>
+	    <div class="form-group">
+		<%= render(:partial=>"form",:locals=>{:f => f}) %>
+	    </div>
+	 <%= submit_tag("Create",:class=>"btn btn-primary") %>
+      <% end %>
+  

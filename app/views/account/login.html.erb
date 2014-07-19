@@ -1,0 +1,44 @@
+<% @page_title = "Login" %>
+
+  <%= link_to("<< Back to Index",{:action=>"index"},:class=>"btn btn-default btn-xs  pull-right") %>
+    <!-- <h2> Welcome to Admin </h2> -->
+	<!-- Here we paste the login information -->
+	<!-- <div class="row"> -->
+	<div class="row">
+	  <h3>Sign In</h3> 
+	    <p class="bg-info">Welcome to CMS <em> </p><br/>
+	</div>
+
+
+		<div class="jumbotron">
+			  
+			<h2>Signing In</h2>
+			   	<div class="container">
+			    	<div class="col-sm-6">
+			    	<p>	If you are new user kindly make a new account by just viewing to the new account option in the lower option and if you existing user kindly login in the right portion of the page.
+			    	</p><%= link_to "New Account",{:action=>"account"},:class=>"btn btn-default btn-md pull-right" %>
+			    	</div>
+			    <div class="col-sm-6">
+			    	<%= form_tag(:action=>"login_attempt") do %>
+			    		<div class="input-group">
+							  <span class="input-group-addon">@Username</span>
+							  <%= text_field_tag(:username,nil,options={:class=> 'form-control',:style=>"margin:0px;",:placeholder=>"Username"}) %>
+						</div><br/><br/>
+							<div class="input-group">
+							  <span class="input-group-addon">@Password</span>
+							  <%= password_field_tag :password,nil,options={:class=> 'form-control',:style=>"margin:0px;",:placeholder=>"Password"} %>
+							</div><br/><br/>
+
+			    	
+							<div class="form-group pull-right">
+			    				<%= submit_tag("Sign In", :class=>"btn btn-primary btn-lg btn-block") %>
+			    			</div>
+			    	</div>
+			  	</div>
+			  	<% end %>
+		</div>	
+
+
+
+
+	<!-- </div>end of row -->

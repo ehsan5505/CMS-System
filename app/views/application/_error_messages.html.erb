@@ -1,0 +1,15 @@
+  <% if object && object.errors.size > 0 %>
+      
+      <div class="bs-callout bs-callout-info">
+      <h3 class="text-info"> Error in form </h3>
+	<blockquote>
+	<p> There are <em><%= pluralize(object.errors.size,"error") %></em> in the form that prevent it from submission.</p>
+	  <ul>
+	      <% object.errors.full_messages.each do |msg| %>
+	      <li class="text-danger"><%= msg %></li>
+	      <% end %>
+	   </ul>
+      </div>
+     </blockquote>
+       <% end %>
+       

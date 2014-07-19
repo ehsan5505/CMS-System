@@ -1,0 +1,40 @@
+<% @page_title = "Administration" %>
+
+  <%= link_to("<< Back to Index",{:action=>"index"},:class=>"btn btn-default btn-xs  pull-right") %>
+    <!-- <h2> Welcome to Admin </h2> -->
+	<!-- Here we paste the login information -->
+	<!-- <div class="row"> -->
+	<div class="row">
+	  <h3>Management</h3> 
+	    <p class="bg-info">There are <em><%= pluralize(@admins.size,"Admin") %><em> </p><br/>
+	</div>
+
+		<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Administration Management</div>
+			  <div class="panel-body">
+			    <p> 
+			    	Content Management System is design for the performing the task for updation and creeation of the website easily even if you are have novice in web development and programming. Here we manage the basic task performation of the different criteria. I hope you would like it.
+			    </p>
+			  </div>
+
+			  <!-- List group -->
+			  <ul class="list-group">
+			    <li class="list-group-item"><span class="badge pull-right"><%= @subjects.size %></span>
+			    	<%= link_to("Manage Content",:controller=>"subject") %></li>
+			    <!-- <li class="list-group-item"><span class="badge pull-right"><%= @pages.size %></span>
+			    	<%= link_to("Manage Page",:controller=>"page") %></li>
+			    <li class="list-group-item"><span class="badge pull-right"><%= @sections.size %></span>
+			    	<%= link_to("Manage Section",:controller=>"section") %></li>
+			     --><li class="list-group-item"><span class="badge pull-right"><%= @admins.size %></span>
+			    	<%= link_to("Manage Admin",:controller=>"admin") %></li>
+			    <li class="list-group-item"><a href="/access/logout">
+			    	<span class="badge pull-right"><span class="glyphicon glyphicon-star"></span></span>Logout</a></li>
+			  </ul>
+		</div>
+
+
+
+
+
+	<!-- </div>end of row -->

@@ -1,0 +1,9 @@
+<% @page_title = "Edit #{@subject.name}" %>
+
+<%= link_to("<< Back to Index",{:action=>'index'},:class=>"btn btn-default btn-xs pull-right") %>
+    <h2> Editing Subject </h2>
+	<%= form_for(:subject,:url=>{:action=>'update',:id=>@subject.id}) do |f| %>
+	 
+	 <%= render(:partial=>"form",:locals=>{:f => f}) %>
+	 <%= submit_tag("Update",:class=>"btn btn-primary") %>
+      <% end %>

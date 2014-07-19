@@ -1,0 +1,13 @@
+<% @page_title = "New Section" %>
+
+      <%= link_to("<< Back to Index",{:action=>'index',:pg=>@page.id,:sub=>@subject.id},:class=>"btn btn-default btn-xs pull-right") %>
+      
+        <h2> New Section </h2>
+	  
+	  <%= form_for(:section,:url=>{:action=>'create',:pg=>@page.id,:sub=>@subject.id},:role=>"form",:class=>"form-horizontal" ) do |f|%>
+	  
+	      <%= render(:partial=>"form",:locals=>{:f => f}) %>
+	  
+	    <%= submit_tag("Create",:class=>"btn btn-default") %>
+	  <% end %>
+	

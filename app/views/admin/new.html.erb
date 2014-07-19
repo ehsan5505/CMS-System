@@ -1,0 +1,12 @@
+	<% @page_title = "Add new Admin" %>
+
+      <%= link_to("<< Back to Index",{:action=>'index'},:class=>"btn btn-default btn-sm pull-right") %>
+      
+      <h2> New Admin </h2>
+      <%= form_for(:admin,:url=>{:action=>'create'},:role=>'form',:class=>"form-horizontal" ) do |f|%>
+	    <div class="form-group">
+		<%= render(:partial=>"form",:locals=>{:f => f}) %>
+	    </div>
+	 <%= submit_tag("Create",:class=>"btn btn-primary") %>
+      <% end %>
+  
